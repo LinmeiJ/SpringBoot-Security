@@ -27,12 +27,14 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public User(String username, String password, String role) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.role = role;
 	}
+
 
 	public Long getId() {
 		return id;

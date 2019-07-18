@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Bean;
 
 import com.chapter2.chapter2.entities.Car;
 import com.chapter2.chapter2.entities.Owner;
+import com.chapter2.chapter2.entities.User;
 import com.chapter2.chapter2.repo.CarRepository;
 import com.chapter2.chapter2.repo.OwnerRepository;
+import com.chapter2.chapter2.repo.UserRepository;
 
 @SpringBootApplication
 public class Chapter2Application {		
@@ -18,6 +20,9 @@ public class Chapter2Application {
 	
 	@Autowired
 	private OwnerRepository or;
+	
+	@Autowired
+	UserRepository ur;
 	
 	public static void main(String[] args) { 
 		SpringApplication.run(Chapter2Application.class, args);
@@ -34,6 +39,11 @@ public class Chapter2Application {
 			cr.save(new Car("Ford","Mustang","Red","ADF-1121", 2017, 59000, o1));
 			cr.save(new Car("Nissan","Leaf","White","SSJ-3002", 2014, 29000, o2));
 			cr.save(new Car("Toyota","Prius","Silver","KKO-0212", 2018, 39000, o2));
+			
+			//add username and password to DB
+			ur.save(new User("user", "$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi", "User"));
+			ur.save(new User("admin", "ADMIN", "Admin"));
+			
 		};
 	}
 }
